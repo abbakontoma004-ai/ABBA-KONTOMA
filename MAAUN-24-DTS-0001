@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb 25 15:13:21 2026
+
+@author: gaiya
+"""
+
+total_score = 0
+
+# Define the test bank with quiz questions
+test_bank = [
+    {
+        "prompt": "What is the capital of Germany? Just type the Option in uppercase.",
+        "options": ["A) Berlin", "B) Sydney", "C) Dubai"],
+        "answer": "A"
+    },
+    {
+        "prompt": "Which is the fastest animal?",
+        "options": ["A) Cat", "B) Cheetah", "C) Cow"],
+        "answer": "B"
+    },
+    {
+    "prompt":"Who is the president of U.S.A?",
+    "options": ["A) Jonathan", "B) Donald Trump", "C) Narendra Modi"],
+    "answer": "B"
+    },
+
+    {
+        "prompt":"whos is the founder of Tesla?",
+    "options": ["A) Jeff Bezoz", "B) Elon Musk", "C) Sam Altman"],
+    "answer": "B"
+
+    },
+    {
+        "prompt":"Which of these is NOT an AI tool?",
+    "options": ["A) Instagram", "B) CHATGPT", "C) Claude"],
+    "answer": "A"
+    }
+]
+
+# Iterating through the list of dictionaries
+for q in test_bank:
+    print("\n" + q["prompt"])
+    for option in q["options"]:
+        print(option)
+        
+    user_answer = input("Give your answer: ") 
+    
+    if user_answer == q["answer"]:
+        print("Correct!")
+        total_score += 1
+
+    elif user_answer not in ["A","B","C","D"]:
+        print("Invalid answer")
+    else:
+        print("Incorrect.")
+
+score =total_score
+def compute_percentage():
+    percentage = (score/total_score)*100
+    if percentage >= 50:
+        print("You Pass!!")
+    else: 
+      print("You failed")
+
