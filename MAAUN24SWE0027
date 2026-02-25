@@ -1,0 +1,58 @@
+# Function to calculate percentage
+def calculate_percentage(score, total):
+    return (score / total) * 100
+
+
+# 1. Setup: List of dictionaries
+quiz = [
+    {
+        "question": "1. What is the capital of France?",
+        "options": ["A. Berlin", "B. Madrid", "C. Paris", "D. Rome"],
+        "correct_answer": "C"
+    },
+    {
+        "question": "2. Which language is used for web development?",
+        "options": ["A. Python", "B. HTML", "C. C++", "D. Java"],
+        "correct_answer": "B"
+    },
+    {
+        "question": "3. What is 5 + 3?",
+        "options": ["A. 6", "B. 7", "C. 8", "D. 9"],
+        "correct_answer": "C"
+    }
+]
+
+score = 0
+
+# 2. Execute: Loop through questions
+for q in quiz:
+    print("\n" + q["question"])
+    
+    # Display options
+    for option in q["options"]:
+        print(option)
+    
+    # 3. Interact: Get user input
+    answer = input("Enter your answer (A, B, C, or D): ").upper()
+    
+    # 4. Evaluate: Check answer
+    if answer == q["correct_answer"]:
+        print("Correct!")
+        score += 1
+    else:
+        print("Wrong! The correct answer was", q["correct_answer"])
+
+
+# 5. Output: Final result
+total_questions = len(quiz)
+percentage = calculate_percentage(score, total_questions)
+
+print("\nQuiz Finished!")
+print("Your score:", score, "out of", total_questions)
+print("Your percentage: {:.2f}%".format(percentage))
+
+# Pass/Fail condition (Pass = 50% and above)
+if percentage >= 50:
+    print("Result: PASS 🎉")
+else:
+    print("Result: FAIL ❌")
